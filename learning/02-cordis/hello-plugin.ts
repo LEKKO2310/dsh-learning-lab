@@ -10,4 +10,5 @@ export const name = 'hello-plugin'
  */
 export function apply(ctx: Context) {
   console.log(`[hello] initialized: ${ctx.fiber.name}`)
+  ctx.effect(() => () => console.log('[hello] disposed'))
 }
