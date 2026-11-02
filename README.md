@@ -8,6 +8,40 @@ It is built on an **everything-is-a-plugin** architecture and powered by [Cordis
 
 Documentation: [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
 
+## Learning project
+
+This repository contains personal learning exercises based on the [DeepSeek Harness source](https://github.com/deepseek-ai/deepseek-harness). It explores Cordis plugins and agent architecture as preparation for a simplified enterprise agent platform.
+
+The original harness, applications, SDKs, and upstream documentation are the work of DeepSeek AI and upstream contributors. This learning project's added plugin code, experiments, and tests live in [learning/02-cordis/](learning/02-cordis/); its documentation and engineering additions include this learning overview and the local-development ignore rules.
+
+Private learning notes and validation logs in `notes/` stay local. The upstream [MIT license](LICENSE), attribution, and [third-party notices](THIRD_PARTY_NOTICES.md) are retained.
+
+### Technology stack
+
+The current code uses TypeScript, Node.js >=24.9.0, pnpm workspaces, and Cordis. The upstream applications include a React/Vite Web UI, Electron desktop app, and TypeScript/Python SDKs. `package.json` specifies pnpm 11.28.5.
+
+### Implemented exercises
+
+The [Cordis exercises](learning/02-cordis/) demonstrate:
+
+- Loading a minimal plugin from YAML.
+- Plugin lifecycle, parent/child disposal, and asynchronous cleanup.
+- Typed events and listener cleanup after unloading.
+- Service registration and consumer reactivation through `inject`.
+
+The learning exercises use Node.js tests and require no model API key. An enterprise Vue 3 frontend, Spring Boot backend, and PostgreSQL storage are outside the current implementation.
+
+### Run the exercises locally
+
+From the repository root, install dependencies and run the existing tests:
+
+```sh
+pnpm install
+node --import tsx --test learning/02-cordis/*.test.ts
+```
+
+All five tests should pass. For the upstream Web UI, follow [Run from source](#run-from-source); authenticated model calls require a separately configured provider. Local credentials, learning notes, session records, dependencies, and build outputs stay outside version control.
+
 ## Developer preview
 
 DeepSeek Harness is in _developer preview_ and iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**

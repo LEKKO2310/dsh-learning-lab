@@ -8,6 +8,40 @@ DeepSeek Harness（`dsh`）是由 [DeepSeek AI](https://deepseek.com) 开发的�
 
 文档：[https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
 
+## 学习项目
+
+本仓库基于 [DeepSeek Harness 源码](https://github.com/deepseek-ai/deepseek-harness)开展个人学习实验，通过研究 Cordis 插件和智能体架构，为简化的企业 Agent 平台做准备。
+
+原始 Harness、应用、SDK 和上游文档由 DeepSeek AI 及上游贡献者开发维护。本学习项目新增的插件代码、实验和测试位于 [learning/02-cordis/](learning/02-cordis/)；文档与工程实践增量包括本学习概览和本地开发忽略规则。
+
+`notes/` 中的私人学习笔记和验证日志仅保留在本地。仓库保留上游 [MIT 许可证](LICENSE)、归属说明和[第三方声明](THIRD_PARTY_NOTICES.md)。
+
+### 技术栈
+
+当前代码使用 TypeScript、Node.js >=24.9.0、pnpm workspaces 和 Cordis。上游应用包含 React/Vite Web UI、Electron 桌面应用和 TypeScript/Python SDK。`package.json` 指定 pnpm 11.28.5。
+
+### 已实现的实验
+
+[Cordis 学习示例](learning/02-cordis/)演示了：
+
+- 从 YAML 加载最小插件。
+- 插件生命周期、父子插件卸载与异步清理。
+- 类型化事件和插件卸载后的监听器清理。
+- 服务注册，以及通过 `inject` 重新激活消费者。
+
+学习示例使用 Node.js 测试，无需模型 API Key。企业 Vue 3 前端、Spring Boot 后端和 PostgreSQL 存储不在当前实现范围内。
+
+### 本地运行学习示例
+
+在仓库根目录安装依赖并运行已有测试：
+
+```sh
+pnpm install
+node --import tsx --test learning/02-cordis/*.test.ts
+```
+
+预期五项测试全部通过。如需运行上游 Web UI，请参见[从源码运行](#run-from-source)；需要认证的模型调用须另行配置 Provider。本地凭据、学习笔记、会话记录、依赖和构建产物不纳入版本管理。
+
 ## 开发者预览
 
 DeepSeek Harness 处于 _开发者预览_ 阶段，正在快速迭代。**未来将出现破坏兼容性的变更。**

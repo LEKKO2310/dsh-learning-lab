@@ -47,3 +47,53 @@ worktrees/
 .agents/worktrees/
 .typert-*/
 native/system/test/bin/
+
+# Local Codex learning artifacts
+/notes/
+/.codex-docs/
+
+# Local credentials and environment files
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.template
+application-local.yml
+application-local.yaml
+application-local.properties
+.credentials.yaml
+.credentials.yml
+.npmrc
+.pypirc
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_ed25519
+
+# Generated output, local data, and caches
+target/
+build/
+dist/
+*.log
+*.pid
+*.sqlite
+*.sqlite3
+*.db
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+/.dsh/
+
+# Editor and operating-system files
+*.iml
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
