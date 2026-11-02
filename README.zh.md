@@ -37,10 +37,13 @@ DeepSeek Harness（`dsh`）是由 [DeepSeek AI](https://deepseek.com) 开发的�
 
 ```sh
 pnpm install
+pnpm exec tsc -b learning/02-cordis
 node --import tsx --test learning/02-cordis/*.test.ts
 ```
 
 预期五项测试全部通过。如需运行上游 Web UI，请参见[从源码运行](#run-from-source)；需要认证的模型调用须另行配置 Provider。本地凭据、学习笔记、会话记录、依赖和构建产物不纳入版本管理。
+
+[Learning CI 工作流](.github/workflows/learning-ci.yml)在 `LEKKO2310/dsh-learning-lab` 的 `main` 分支推送和拉取请求中运行上述类型检查与测试，使用 GitHub 托管运行器，无需模型凭据。上游发布、真实 API、组织策略和企业运行器工作流在本仓库的 Actions 设置中禁用，源码文件保持完整。继承的 Dependabot 自动版本更新已停用。此 CI 验证 Cordis 学习示例，不代表整个上游 Harness 的完整验证。
 
 ## 开发者预览
 

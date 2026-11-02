@@ -37,10 +37,13 @@ From the repository root, install dependencies and run the existing tests:
 
 ```sh
 pnpm install
+pnpm exec tsc -b learning/02-cordis
 node --import tsx --test learning/02-cordis/*.test.ts
 ```
 
 All five tests should pass. For the upstream Web UI, follow [Run from source](#run-from-source); authenticated model calls require a separately configured provider. Local credentials, learning notes, session records, dependencies, and build outputs stay outside version control.
+
+The [Learning CI workflow](.github/workflows/learning-ci.yml) runs these type checks and tests on pushes and pull requests to `main` in `LEKKO2310/dsh-learning-lab`, using a GitHub-hosted runner without model credentials. Upstream release, real-API, organization-policy, and enterprise-runner workflows are disabled in this repository's Actions settings; their source files remain intact. Inherited Dependabot version updates are disabled. This CI validates the Cordis learning exercises, not the entire upstream harness.
 
 ## Developer preview
 
